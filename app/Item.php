@@ -24,14 +24,5 @@ class Item extends Model
     public function application() {
         return $this->belongsTo(Applications::class, 'application_id');
     }
-
-    protected $appends = ['audio', 'image'];
-
-    public function getAudioAttribute() {
-        return $this->audio();
-    }
-
-    public function getImageAttribute() {
-        return $this->background_image();
-    }
+    
 }
