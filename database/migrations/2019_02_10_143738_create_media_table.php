@@ -17,7 +17,7 @@ class CreateMediaTable extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->string('path', 255)->nullable();
-            $table->string('type', 255);
+            $table->string('type', 255)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

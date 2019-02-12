@@ -49,7 +49,7 @@ class ItemController extends Controller
             'id' => 'required|exists:items,id',
             'content' => 'required|string',
             'audio_id' => 'exist:media,id',
-            'image_id' => 'exist:media,id',
+            'background_image_id' => 'exist:media,id',
             'application_id' => 'exist:applications,id',
             'category_ids' => 'required|array|exists:category,id,deleted_at,NULL'
         ]);
