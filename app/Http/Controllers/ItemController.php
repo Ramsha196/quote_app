@@ -77,4 +77,20 @@ class ItemController extends Controller
             'data' => $item
         ]);
     }
+
+    public function listById(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:items,id'
+        ]);
+
+        $item = Item::with('categories', 'audio', 'background_image')->get()->find($request->id);
+
+        return response()->json([
+            'success' => true,
+            'data' => $item,
+
+        ]);
+
+    }
 }
