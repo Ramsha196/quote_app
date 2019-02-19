@@ -79,6 +79,29 @@ public function delete(Request $request)
 
 }
 
+    public function listAll()
+    {
+        $media = Media::all();
 
+        return response()->json([
+            'success' => true,
+            'data' => $media
+        ]);
+    }
+
+    public function listById(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer|exists:media,id,deleted_at,NULL'
+        ]);
+
+        $media = Media::find($request->id);
+        return response()->json([
+            'success' => true,
+            'data' => $media
+
+        ]);
+
+    }
 
 }
