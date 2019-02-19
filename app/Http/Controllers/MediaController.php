@@ -104,4 +104,24 @@ public function delete(Request $request)
 
     }
 
+    public function randomAudio()
+    {
+        $media = Media::where('type', 'mp3')->orderByRaw("RAND()")->first();
+        return response()->json([
+            'success' => true,
+            'data' => $media
+        ]);
+    }
+
+    public function randomImage()
+    {
+        $media = Media::where('type', 'jpg')->orderByRaw("RAND()")->first();
+        return response()->json([
+            'success' => true,
+            'data' => $media
+
+        ]);
+    }
+
+
 }

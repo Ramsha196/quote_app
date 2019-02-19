@@ -48,5 +48,9 @@ Route::group(['prefix' => 'media'], function(){
     Route::post('delete',    'MediaController@delete');
     Route::post('update',    'MediaController@update');
     Route::get('list_all',    'MediaController@listall');
+    Route::get('list_by_id',    'MediaController@listById');
+    Route::get('random_audio',    'MediaController@randomAudio');
+    Route::get('random_image',    'MediaController@randomImage');
+
 
 });
