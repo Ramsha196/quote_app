@@ -22,6 +22,7 @@ Route::group(['prefix' => 'category'], function(){
     Route::post('delete',    'CategoryController@delete');
     Route::post('update',    'CategoryController@update');
     Route::get('list_all',    'CategoryController@listall');
+    Route::get('list_by_id',    'CategoryController@listById');
 
 });
 
@@ -38,6 +39,7 @@ Route::group(['prefix' => 'item'], function(){
     Route::post('delete',    'ItemController@delete');
     Route::post('update',    'ItemController@update');
     Route::get('list_all',    'ItemController@listall');
+    Route::get('list_by_id',    'ItemController@listById');
 
 });
 

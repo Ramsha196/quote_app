@@ -48,9 +48,9 @@ class ItemController extends Controller
         $request->validate([
             'id' => 'required|exists:items,id',
             'content' => 'required|string',
-            'audio_id' => 'exist:media,id',
-            'background_image_id' => 'exist:media,id',
-            'application_id' => 'exist:applications,id',
+            'audio_id' => 'exists:media,id',
+            'background_image_id' => 'exists:media,id',
+            'application_id' => 'exists:applications,id',
             'category_ids' => 'required|array|exists:category,id,deleted_at,NULL'
         ]);
 
@@ -76,5 +76,21 @@ class ItemController extends Controller
             'success' => true,
             'data' => $item
         ]);
+    }
+
+    public function listById(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:items,id'
+        ]);
+
+        $item = Item::with('categories', 'audio', 'background_image')->get()->find($request->id);
+
+        return response()->json([
+            'success' => true,
+            'data' => $item,
+
+        ]);
+
     }
 }

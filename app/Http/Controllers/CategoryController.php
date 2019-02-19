@@ -62,4 +62,19 @@ class CategoryController extends Controller
             'data' => $category
         ]);
     }
+
+    public function listById(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer|exists:category,id,deleted_at,NULL'
+        ]);
+
+        $category = Category::find($request->id);
+        return response()->json([
+            'success' => true,
+            'data' => $category
+
+        ]);
+
+    }
 }
