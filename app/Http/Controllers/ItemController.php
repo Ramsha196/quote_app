@@ -95,4 +95,26 @@ class ItemController extends Controller
         ]);
 
     }
+
+
+    public function itemByCategory(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:category,id,deleted_at,NULL'
+        ]);
+
+        $id = $request->id;
+
+       $item =  Item::whereHas('categories', function ($query) use ($id) {
+            return $query->where('category.id', $id);
+        })->get();
+        return response()->json([
+            'success' => true,
+            'data' => $item,
+
+        ]);
+    }
+
+
 }
+

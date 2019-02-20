@@ -40,6 +40,9 @@ Route::group(['prefix' => 'item'], function(){
     Route::post('update',    'ItemController@update');
     Route::get('list_all',    'ItemController@listall');
     Route::get('list_by_id',    'ItemController@listById');
+    Route::get('item_by_category',    'ItemController@itemByCategory');
+
+
 
 });
 
