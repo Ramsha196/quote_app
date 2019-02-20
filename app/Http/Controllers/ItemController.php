@@ -15,7 +15,8 @@ class ItemController extends Controller
             'audio_id' => 'exists:media,id',
             'background_image_id' => 'exists:media,id',
             'application_id' => 'exists:applications,id',
-            'category_ids' => 'required|array|exists:category,id,deleted_at,NULL'
+            'category_ids' => 'required|array|exists:category,id,deleted_at,NULL',
+            'content_source' => 'string'
         ]);
 
         $item = Item::create($request->all());
@@ -51,7 +52,8 @@ class ItemController extends Controller
             'audio_id' => 'exists:media,id',
             'background_image_id' => 'exists:media,id',
             'application_id' => 'exists:applications,id',
-            'category_ids' => 'required|array|exists:category,id,deleted_at,NULL'
+            'category_ids' => 'required|array|exists:category,id,deleted_at,NULL',
+            'content_source' => 'string'
         ]);
 
         $item = Item::find($request->id);

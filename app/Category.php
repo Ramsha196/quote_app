@@ -17,3 +17,5 @@ class Category extends Model
         return $this->belongsToMany(Item::class, 'category_item');
     }
 }
+
+

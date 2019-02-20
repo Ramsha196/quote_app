@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    protected $fillable = ['content', 'audio_id', 'background_image_id', 'application_id'];
+    protected $fillable = ['content', 'audio_id', 'background_image_id', 'application_id', 'content_source'];
     protected $table = 'items';
     public function categories() {
         return $this->belongsToMany(Category::class, 'category_item');

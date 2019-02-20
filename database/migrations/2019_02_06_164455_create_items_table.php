@@ -16,8 +16,8 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('application_id')->nullable()->unsigned();
-            $table->string('content', 255);
-            $table->string('content_source', 255);
+            $table->string('content', 2000);
+            $table->string('content_source', 505);
             $table->integer('audio_id')->unsigned()->nullable();
             $table->integer('background_image_id')->unsigned()->nullable();
             $table->softDeletes();
