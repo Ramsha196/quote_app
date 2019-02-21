@@ -42,6 +42,7 @@ class MediaController extends Controller
         ]);
 
         $media = Media::find($request->id);
+        $media->name = $request->name;
         $path = $media->path;
         $file = basename($path);
         @unlink('storage/media/'.$request->id.'/'.$file);
@@ -115,7 +116,7 @@ public function delete(Request $request)
 
     public function randomImage()
     {
-        $media = Media::where('type', 'jpg')->orwhere('type', '=', 'jpeg')->orwhere('type', '=', 'png')->orderByRaw("RAND()")->first();
+        $media = Media::where('type', 'jpg')->orderByRaw("RAND()")->first();
         return response()->json([
             'success' => true,
             'data' => $media
