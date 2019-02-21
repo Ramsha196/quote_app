@@ -15,8 +15,8 @@ class ForeignKeysToItems extends Migration
     {
         Schema::table('items', function (Blueprint $table) {
             $table->foreign('application_id')->references('id')->on('applications');
-            $table->foreign('audio_id')->references('id')->on('media')->onDelete('set null')->onUpdate('cascade');
-            $table->foreign('background_image_id')->references('id')->on('media')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('audio_id')->references('id')->on('media')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('background_image_id')->references('id')->on('media')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
