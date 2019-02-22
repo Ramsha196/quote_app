@@ -11,7 +11,7 @@ class MediaController extends Controller
 
     {
         $request->validate([
-            'file' => 'required|mimes:jpeg,png,jpg,mpga,wav,max:50',
+            'file' => 'required|mimes:jpeg,png,jpg,mpga,wav,max:10240',
             'name' => 'required|string',
         ]);
 
