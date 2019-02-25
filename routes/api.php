@@ -54,6 +54,8 @@ Route::group(['prefix' => 'media'], function(){
     Route::get('list_by_id',    'MediaController@listById');
     Route::get('random_audio',    'MediaController@randomAudio');
     Route::get('random_image',    'MediaController@randomImage');
+    Route::get('list_by_image',    'MediaController@listByImage');
+    Route::get('list_by_audio',    'MediaController@listByAudio');
 
 
 });

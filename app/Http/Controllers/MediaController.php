@@ -124,5 +124,22 @@ public function delete(Request $request)
         ]);
     }
 
+    public function listByImage(Request $request)
+    {
+        $media = Media::where('type','png')->orWhere('type', 'jpg')->get();
+        return response()->json([
+            'success' => true,
+            'data' => $media
+        ]);
+    }
+
+    public function listByAudio(Request $request)
+    {
+        $media = Media::where('type','mpga')->orWhere('type', 'wav')->get();
+        return response()->json([
+            'success' => true,
+            'data' => $media
+        ]);
+    }
 
 }
