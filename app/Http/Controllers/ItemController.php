@@ -109,6 +109,11 @@ class ItemController extends Controller
             return $query->where('category.id', $id);
         })->with('categories', 'audio', 'background_image')->get();
 
+       return response()->json(
+           ['data' => $item
+           ]
+       );
+
     }
 
 
