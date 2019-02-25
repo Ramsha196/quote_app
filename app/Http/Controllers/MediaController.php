@@ -135,7 +135,7 @@ public function delete(Request $request)
 
     public function listByAudio(Request $request)
     {
-        $media = Media::where('type','mpga')->orWhere('type', 'wav')->get();
+        $media = Media::where('type','mp3')->orWhere('type', 'wav')->get();
         return response()->json([
             'success' => true,
             'data' => $media
