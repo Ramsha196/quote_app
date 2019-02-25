@@ -107,12 +107,8 @@ class ItemController extends Controller
 
        $item =  Item::whereHas('categories', function ($query) use ($id) {
             return $query->where('category.id', $id);
-        })->get();
-        return response()->json([
-            'success' => true,
-            'data' => $item,
+        })->with('categories', 'audio', 'background_image')->get();
 
-        ]);
     }
 
 
